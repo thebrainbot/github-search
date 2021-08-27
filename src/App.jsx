@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Container } from '@material-ui/core';
 
 import logo from './logo.svg';
 import './App.css';
 import * as searchActions from './modules/search/actions/actions';
 import List from './modules/list/List';
+import Header from './modules/header/Header';
 
 function App({ loading, userCount, actions }) {
   const runSearch = () => {
@@ -14,8 +16,12 @@ function App({ loading, userCount, actions }) {
   };
   return (
     <div className="App">
+      <Header />
+
       { loading }
-      <List />
+      <Container maxwidth="sm">
+        <List />
+      </Container>
       {' '}
       -
       {' '}
