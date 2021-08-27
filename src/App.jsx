@@ -1,41 +1,70 @@
 import React from 'react';
-import {
-  ApolloProvider,
-} from '@apollo/client';
-import { Provider as ReduxProvider } from 'react-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import logo from './logo.svg';
 import './App.css';
-import client from './client';
-import store from './store';
+import * as searchActions from './modules/search/actions/actions';
 
-function App() {
+function App({ loading, userCount, actions }) {
+  const runSearch = () => {
+    actions.runUserSearch('bnash');
+  };
   return (
-    <ReduxProvider store={store}>
-      <ApolloProvider client={client}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit
-              {' '}
-              <code>src/App.js</code>
-              {' '}
-              and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
+    <div className="App">
+      { loading }
+      {' '}
+      -
+      {' '}
+      { userCount}
+      <header className="App-header">
+        <div role="button" tabIndex="0" onClick={runSearch} onKeyPress={runSearch}>
+          <img src={logo} className="App-logo" alt="logo" />
         </div>
-      </ApolloProvider>
-    </ReduxProvider>
+        <p>
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
-export default App;
+App.propTypes = {
+  loading: PropTypes.bool,
+  userCount: PropTypes.number,
+  actions: PropTypes.shape({
+    runUserSearch: PropTypes.func,
+  }).isRequired,
+};
+
+App.defaultProps = {
+  loading: false,
+  userCount: 0,
+};
+
+function mapStateToProps(state) {
+  const { searchReducers: search } = state;
+  return { loading: search.loading, userCount: search.userCount };
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(searchActions, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
