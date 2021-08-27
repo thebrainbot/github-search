@@ -9,6 +9,7 @@ import './App.css';
 import * as searchActions from './modules/search/actions/actions';
 import List from './modules/list/List';
 import Header from './modules/header/Header';
+import Search from './modules/search/Search';
 
 function App({ loading, userCount, actions }) {
   const runSearch = () => {
@@ -20,6 +21,7 @@ function App({ loading, userCount, actions }) {
 
       { loading }
       <Container maxwidth="sm">
+        <Search />
         <List />
       </Container>
       {' '}
