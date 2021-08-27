@@ -31,7 +31,7 @@ function List({ nodes }) {
       data-test-id="card-list"
     >
       {nodes
-        ? nodes.map((cardData) => (
+        && nodes.map((cardData) => (
           <Card
             key={cardData.id}
             id={cardData.id}
@@ -40,8 +40,7 @@ function List({ nodes }) {
             description={cardData.bio}
             link={cardData.url}
           />
-        ))
-        : <div>No users found</div>}
+        ))}
     </Grid>
   );
 }
