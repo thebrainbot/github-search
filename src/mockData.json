@@ -1,0 +1,133 @@
+{
+    "data": {
+        "search": {
+            "userCount": 33,
+            "pageInfo": {
+                "startCursor": "Y3Vyc29yOjE=",
+                "endCursor": "Y3Vyc29yOjEw"
+            },
+            "nodes": [
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/1112276?s=1&u=ccd0d61c6a6a673c51f389b6b8b6014018705c0e&v=4",
+                    "bio": "Scientist studying synchrotron light sources.",
+                    "bioHTML": "<div>Scientist studying synchrotron light sources.</div>",
+                    "company": "@radiasoft",
+                    "companyHTML": "<div><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/radiasoft/hovercard\" href=\"https://github.com/radiasoft\">@radiasoft</a></div>",
+                    "id": "MDQ6VXNlcjExMTIyNzY=",
+                    "name": "Boaz Nash",
+                    "status": null,
+                    "url": "https://github.com/bnash",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/33874678?s=1&u=31fb1d9f8e007fbbc67045774f752d532c575179&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjMzODc0Njc4",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/BNashDavies",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/8518704?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjg1MTg3MDQ=",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnash-net",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/1126047?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": "Phase 2 Technology",
+                    "companyHTML": "<div>Phase 2 Technology</div>",
+                    "id": "MDQ6VXNlcjExMjYwNDc=",
+                    "name": "Brian Nash",
+                    "status": null,
+                    "url": "https://github.com/bnash2501",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/7074837?s=1&u=82130607fb4851096b3e1b7b3497522f7bfdf3cc&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjcwNzQ4Mzc=",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnasholm",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/29416248?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjI5NDE2MjQ4",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnashville",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/6941460?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjY5NDE0NjA=",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnash772",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/16786790?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjE2Nzg2Nzkw",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnash23",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/49560985?s=1&v=4",
+                    "bio": null,
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjQ5NTYwOTg1",
+                    "name": null,
+                    "status": null,
+                    "url": "https://github.com/bnash13",
+                    "websiteUrl": null
+                },
+                {
+                    "avatarUrl": "https://avatars.githubusercontent.com/u/1356475?s=1&v=4",
+                    "bio": "",
+                    "bioHTML": "",
+                    "company": null,
+                    "companyHTML": "",
+                    "id": "MDQ6VXNlcjEzNTY0NzU=",
+                    "name": "BNash",
+                    "status": null,
+                    "url": "https://github.com/schuss",
+                    "websiteUrl": null
+                }
+            ]
+        }
+    }
+}
