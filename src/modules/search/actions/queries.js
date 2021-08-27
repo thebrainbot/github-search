@@ -1,8 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const searchResultItemFragment = gql`
-  fragment SearchResultItemFragment on SearchResultItem {
-    ... on User {
+  fragment SearchResultItemFragment on User {
       id,
       avatarUrl,
       bio,
@@ -12,7 +11,6 @@ export const searchResultItemFragment = gql`
       name,
       url,
       websiteUrl
-    }
   }
 `;
 

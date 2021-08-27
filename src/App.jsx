@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 import * as searchActions from './modules/search/actions/actions';
+import List from './modules/list/List';
 
 function App({ loading, userCount, actions }) {
   const runSearch = () => {
@@ -14,6 +15,7 @@ function App({ loading, userCount, actions }) {
   return (
     <div className="App">
       { loading }
+      <List />
       {' '}
       -
       {' '}

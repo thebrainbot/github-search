@@ -21,17 +21,9 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-const possibleNodeTypes = ['User', 'App', 'Discussion', 'Issue', 'MarketplaceListing', 'Organization', 'PullRequest', 'Repository'];
-
-const cache = new InMemoryCache({
-  possibleTypes: {
-    Node: possibleNodeTypes,
-  },
-});
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache,
+  cache: new InMemoryCache(),
 });
 
 export default client;

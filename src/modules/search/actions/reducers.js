@@ -1,7 +1,7 @@
 import * as types from './types';
 import initialState from '../../../reducers/initialState';
 
-export default function (state = initialState.search, action) {
+export default function (state = initialState.search, action) { // eslint-disable-line func-names
   switch (action.type) {
     case types.SEARCH_RESULTS:
       return {
