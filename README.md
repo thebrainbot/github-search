@@ -2,6 +2,32 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+Initial setup should only require two things:  
+`yarn install`  
+and adding a .env.local file with a [github personal access token](https://github.com/settings/tokens). The key for the value is `REACT_APP_GITHUB_API_TOKEN`. Without this token, queries will fail.
+
+The token should have permissions for:
+
+> read:org
+>
+> read:public_key
+>
+> read:repo_hook
+>
+> read:user
+>
+> user:email
+
+## Running App
+
+After installing the node modules and adding the .env.local file, then
+
+## Future work and ideas
+
+## The three largest areas of improvement are: Better testing (outside of Postman), accessibility analysis and updates, and improved UX/UI.
+
 ## Available Scripts
 
 In the project directory, you can run:
