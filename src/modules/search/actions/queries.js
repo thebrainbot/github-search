@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const searchResultItemFragment = gql`
-  fragment SearchResultItemFragment on User {
+  fragment SearchResultItemFragmentUser on User {
       id,
       avatarUrl,
       bio,
@@ -12,31 +12,47 @@ export const searchResultItemFragment = gql`
       url,
       websiteUrl
   }
+  fragment SearchResultItemFragmentOrg on Organization {
+    id,
+    avatarUrl,
+    name,
+    url,
+    websiteUrl
+  }
 `;
 
 export const pageInfoFragment = gql`
   fragment PageInfoFragment on PageInfo {
     startCursor,
     endCursor,
+    hasNextPage,
+    hasPreviousPage,
   }
 `;
 
 const userSearchQuery = gql`
   query UserSearchQuery(
     $query: String!,
-    $amount: Int!
+    $afterCursor: String,
+    $beforeCursor: String,
+    $first: Int,
+    $last: Int
   ) {
     search(
       type: USER,
       query: $query,
-      first: $amount,
+      first: $first,
+      last: $last,
+      after: $afterCursor,
+      before: $beforeCursor,
     ) {
       userCount,
       pageInfo {
         ...PageInfoFragment
       },
       nodes {
-        ...SearchResultItemFragment
+        ...SearchResultItemFragmentUser,
+        ...SearchResultItemFragmentOrg
       }
     }
   }

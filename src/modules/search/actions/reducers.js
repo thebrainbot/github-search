@@ -8,6 +8,7 @@ export default function (state = initialState.search, action) { // eslint-disabl
         loading: false,
         error: null,
         ...action.search,
+        query: state.query,
       };
     case types.SEARCH_ERROR:
       return {
@@ -22,6 +23,7 @@ export default function (state = initialState.search, action) { // eslint-disabl
     case types.SEARCH_START:
       return {
         ...state,
+        query: action.query,
         loading: true,
       };
     default:

@@ -1,5 +1,6 @@
 const initialState = {
   search: {
+    query: null,
     loading: null,
     error: null,
     userCount: null,

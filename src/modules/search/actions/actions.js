@@ -2,6 +2,8 @@ import client from '../../../client';
 import * as types from './types';
 import userSearchQuery from './queries';
 
+export const resultsPerPage = 10;
+
 export function setSearchResults({ search }) {
   return {
     type: types.SEARCH_RESULTS,
@@ -22,34 +24,68 @@ export function clearSearchResults() {
   };
 }
 
-export function searchStart() {
+export function searchStart(query) {
   return {
     type: types.SEARCH_START,
+    query,
   };
 }
 
-export function userSearch({
-  query,
-  resultsPerPage = 10,
-}) {
+export function userSearch({ query, pageProps }) {
+  const {
+    first, last, afterCursor, beforeCursor,
+  } = pageProps;
   return client.query({
     query: userSearchQuery,
     variables: {
       query,
-      amount: resultsPerPage,
+      first,
+      last,
+      afterCursor,
+      beforeCursor,
     },
     fetchPolicy: 'network-only',
   });
 }
 
-export function runUserSearch(query, first = 10) {
+/**
+ * Handles page prop setup.
+ * The endCursor and startCursor usage depends on
+ * if they want to go forward or back.
+ * end is used for going forward, start for going back.
+ * In the query request, they match with after and before respectively.
+ */
+export function setupPageProps(cursor) {
+  const { endCursor = null, startCursor = null } = cursor;
+
+  // going forward a page
+  if (endCursor) {
+    return {
+      first: resultsPerPage,
+      afterCursor: endCursor,
+    };
+  }
+  // going back a page
+  if (startCursor) {
+    return {
+      last: resultsPerPage,
+      beforeCursor: startCursor,
+    };
+  }
+  return {
+    first: resultsPerPage,
+  };
+}
+
+export function runUserSearch(query, cursor = {}) {
   return (dispatch) => {
     if (query && query !== '') {
-      dispatch({ type: types.SEARCH_START });
+      const pageProps = setupPageProps(cursor);
+      dispatch(searchStart(query));
       return userSearch(
         {
           query,
-          first,
+          pageProps,
         },
       ).then((response) => {
         dispatch(setSearchResults(response.data));
@@ -58,6 +94,7 @@ export function runUserSearch(query, first = 10) {
           dispatch({
             type: types.SEARCH_ERROR,
             error,
+            query,
           });
         });
     }

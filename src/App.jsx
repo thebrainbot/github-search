@@ -6,6 +6,7 @@ import List from './modules/list/List';
 import Header from './modules/header/Header';
 import Search from './modules/search/Search';
 import UserCount from './modules/userCount/UserCount';
+import Pagination from './modules/pagination/Pagination';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Search />
         <UserCount />
         <List />
+        <Pagination />
       </Container>
     </div>
   );
