@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     margin: 'auto',
     display: 'block',
-    maxWidth: '50px',
+    maxWidth: '100px',
     maxHeight: '100%',
   },
   leftArea: {
@@ -22,22 +22,35 @@ const useStyles = makeStyles((theme) => ({
   rightArea: {
     width: '70%',
   },
-  title: {
-    lineHeight: 1.1,
-    marginBottom: 10,
-  },
   link: {
     display: 'flex',
     width: '100%',
+  },
+  name: {
+    lineHeight: '1.75rem',
+    marginBottom: '1rem',
+  },
+  body: {
+    lineBeight: '1.25rem',
+    paddingBottom: '.25rem',
   },
 }));
 
 const Card = (props) => {
   const classes = useStyles();
   const {
-    id, name, image, description, link,
+    id,
+    name,
+    image,
+    description,
+    link,
+    company,
+    login,
+    starredRepositories: { totalCount: starredCount },
+    commitComments: { totalCount: commitCount },
   } = props;
 
+  const displayName = name || login;
   const onPress = () => {
     window.location.href = link;
   };
@@ -58,8 +71,33 @@ const Card = (props) => {
             <img alt="test" src={image} className={classes.img} />
           </div>
           <div className={classes.rightArea}>
-            <h6>{name}</h6>
-            <p>{description}</p>
+            <Typography className={classes.name} variant="h4">
+              {displayName}
+            </Typography>
+            { company && (
+            <Typography className={classes.body} variant="body1">
+              Company:
+              {' '}
+              {company}
+            </Typography>
+            )}
+            { description
+              && (
+              <Typography className={classes.body} variant="body1">
+                {description}
+              </Typography>
+              )}
+
+            <Typography className={classes.body} variant="body1">
+              Starred Repos:
+              {' '}
+              {starredCount}
+            </Typography>
+            <Typography className={classes.body} variant="body1">
+              Commit Comments:
+              {' '}
+              {commitCount}
+            </Typography>
           </div>
         </div>
       </Paper>
@@ -69,16 +107,29 @@ const Card = (props) => {
 
 Card.propTypes = {
   id: PropTypes.string.isRequired,
-  name: PropTypes.string,
   link: PropTypes.string.isRequired,
+  login: PropTypes.string,
+  name: PropTypes.string,
   image: PropTypes.string,
   description: PropTypes.string,
+  company: PropTypes.string,
+  starredRepositories: PropTypes.shape({
+    totalCount: PropTypes.number,
+  }),
+  commitComments: PropTypes.shape({
+    totalCount: PropTypes.number,
+  }),
 };
 
 Card.defaultProps = {
   name: 'No name',
   image: null,
   description: 'No description',
+  company: null,
+  login: null,
+  starredRepositories: { totalCount: 0 },
+  commitComments: { totalCount: 0 },
+
 };
 
 export default Card;

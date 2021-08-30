@@ -2,7 +2,7 @@ import client from '../../../client';
 import * as types from './types';
 import userSearchQuery from './queries';
 
-export const resultsPerPage = 10;
+export const resultsPerPage = 9;
 
 export function setSearchResults({ search }) {
   return {

@@ -36,9 +36,13 @@ function List({ nodes }) {
             key={cardData.id}
             id={cardData.id}
             image={cardData.avatarUrl}
-            title={cardData.name}
+            company={cardData.company}
+            name={cardData.name}
+            login={cardData.login}
             description={cardData.bio}
             link={cardData.url}
+            starredRepositories={cardData.starredRepositories}
+            commitComments={cardData.commitComments}
           />
         ))}
     </Grid>

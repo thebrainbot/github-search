@@ -26,7 +26,7 @@ const Pagination = (props) => {
     actions.runUserSearch(query, { startCursor });
   };
 
-  const pageCount = Math.ceil(userCount / 10);
+  const pageCount = Math.ceil(userCount / 9);
 
   return (
     <div>

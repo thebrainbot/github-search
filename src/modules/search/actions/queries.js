@@ -2,15 +2,21 @@ import { gql } from '@apollo/client';
 
 export const searchResultItemFragment = gql`
   fragment SearchResultItemFragmentUser on User {
-      id,
-      avatarUrl,
-      bio,
-      bioHTML,
-      company,
-      companyHTML,
-      name,
-      url,
-      websiteUrl
+    id,
+    avatarUrl,
+    bio,
+    company,
+    name,
+    url,
+    email,
+    starredRepositories {
+      totalCount,
+    },
+    commitComments {
+      totalCount,
+    },
+    login,
+    websiteUrl 
   }
   fragment SearchResultItemFragmentOrg on Organization {
     id,
