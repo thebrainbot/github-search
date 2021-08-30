@@ -2,10 +2,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
+
 import * as searchActions from '../search/actions/actions';
 import PaginationButton from './PaginationButton';
 
+const useStyles = makeStyles(() => ({
+  paginationWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: '2rem',
+  },
+}));
+
 const Pagination = (props) => {
+  const classes = useStyles();
+
   const {
     userCount,
     query,
@@ -29,13 +43,13 @@ const Pagination = (props) => {
   const pageCount = Math.ceil(userCount / 9);
 
   return (
-    <div>
+    <div className={classes.paginationWrapper}>
       <PaginationButton isDisabled={!hasPreviousPage} action={prevPage} label="Prev" />
-      <p>
+      <Typography variant="h6">
         { pageCount }
         {' '}
         pages
-      </p>
+      </Typography>
       <PaginationButton isDisabled={!hasNextPage} action={nextPage} label="Next" />
     </div>
   );
